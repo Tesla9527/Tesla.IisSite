@@ -1,0 +1,34 @@
+﻿@model List<Tesla.IisSite.Models.IisSite>
+@{
+
+    ViewBag.Title = "测试环境站点集";
+}
+<div id="site_list">
+    <table class="table table-striped">
+        <tr>
+            <td style="width: 10px">Id</td>
+            <td style="width: 60px">Protocol</td>
+            <td style="width: 100px">Ip v4</td>
+            <td style="width: 50px">Port</td>
+            <td style="width: 100px">Site Name</td>
+            <td style="width: 100px">Memo</td>
+            <td style="width: 50px">Site State</td>
+            <td style="width: 50px">Site Link</td>   
+            <td style="width: 50px">Site Path</td>            
+        </tr>
+        @foreach (var q in Model)
+        {
+            <tr id="site_@q.Id">
+                <td class="c">@q.Id</td>
+                <td class="c">@q.Protocol</td>
+                <td class="c">@q.Ip</td>
+                <td class="c">@q.Port</td>
+                <td class="c">@q.Name</td>
+                <td class="c">@(new HtmlString(q.Memo))</td>
+                <td class="c">@q.State</td>
+                <td><a href="@q.Link" target="_blank" class="btn btn-primary btn-xs">点击访问</a></td>     
+                <td class="c">@q.SitePath</td>           
+            </tr>
+        }
+    </table>
+</div>
